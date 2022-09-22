@@ -1,0 +1,17 @@
+@media (max-width:1050px) {
+    nav {
+        display: none !important;
+    }
+
+    .menu {
+        display: block;
+    }
+}
+@media (max-width:770px) {
+    .pot{
+        width: 90%;
+    }
+    .pot>img{
+        width: 100%;
+    }
+}

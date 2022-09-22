@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0">
+    <title>Jurdi | Terms of use</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!-- VUE JS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body id="app">
+    <section v-if="geo" class="geo-block">
+        <img src="assets/img/Color logo with background.png" alt="Jurdi Logo" class="img-fluid rounded" width="100">
+        <h1 class="text-center text-grey-2 my-5">Geo blocked </h1>
+    </section>
+    <section v-if="spinner" class="geo-block">
+        <center class="my-5 d-flex flex-column justify-content-center align-items-center">
+
+            <img src="assets/img/Color logo with background.png" alt="Jurdi Logo" class="img-fluid rounded my-3"
+                width="100">
+            <!-- <h1 class="fs-1 text-center cin text-grey-2 my-3">Jurdi Law</h1> -->
+            <div class="spinner-grow text-light" role="status"></div>
+        </center>
+    </section>
+    <header
+        class="w-100 position-fixed top-0 start-0  d-flex justify-content-between align-items-center px-5 py-3 shadow text-light">
+        <a href="./index.html">
+            <img src="assets/img/Color logo with background.png" alt="Jurdi Logo" class="img-fluid rounded" width="100">
+        </a>
+        <!-- <h1 class="fs-1 cin  point"><a href="./index.html" class="text-light">Jurdi Law</a></h1> -->
+        <nav class="justify-content-evenly align-items-center gap-5">
+            <a href="./index.html" class="fs-6">Home</a>
+            <a href="./team.html" class="fs-6">Our Team</a>
+            <a href="" class="fs-6">Terms of Use</a>
+            <a href="" class="fs-6">Privacy Policy</a>
+            <a href="" class="fs-6">LinkedIn</a>
+            <a href="" class="btn btn-primary px-3 ls-2 fs-6">Contact</a>
+        </nav>
+        <i class="bi bi-grid-fill fs-1 menu point" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"></i>
+
+
+
+        <div class="w-85 offcanvas offcanvas-end text-dark" tabindex="-1" id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title fs-5 text-grey-1 cin" id="offcanvasExampleLabel">Jurdi Law</h5>
+                <i class="bi bi-arrow-right fs-3" data-bs-dismiss="offcanvas" aria-label="Close"></i>
+            </div>
+            <div class="offcanvas-body">
+                <div class="text-center text-secondary">
+                    {{profile.bio}}
+                </div>
+                <div class="d-flex justify-content-evenly align-items-center gap-3 my-4 media-links">
+                    <i class="bi bi-whatsapp"></i>
+                    <i class="bi bi-linkedin"></i>
+                    <i class="bi bi-envelope"></i>
+                    <i class="bi bi-twitter"></i>
+                </div>
+                <hr>
+                <section class="d-flex flex-column justify-content-evenly align-items-center gap-3 my-4 ls-2">
+                    <a href="">Technology</a>
+                    <a href="">Media</a>
+                    <a href="">Music</a>
+                    <a href="">Influencers & Talents</a>
+                    <a href="./team.html">Our Team</a>
+
+                    <a href="">Privacy Policy</a>
+                    <a href="">Terms of Use</a>
+                    <a href="" class="btn btn-primary text-light w-75">Contact Us</a>
+                </section>
+
+            </div>
+        </div>
+    </header>
+    <main>
+
+        <h2 class="text-center text-grey-2 mt-5 fs-2 scale-up-center">Jurdi Law | Terms of Use</h2>
+        <h5 class="fs-5 text-grey-1 text-center container my-3">
+            Effective as of 2nd of January, 2022
+        </h5>
+
+        <hr class="w-75 mx-auto">
+        <div class="container my-3">
+            <h2 class="text-grey-2 mt-5 fs-2 scale-up-center">WELCOME TO www.jprodconsult.media</h2>
+            <h5 class="fs-5 text-grey-1 my-3">PLEASE READ THESE TERMS VERY CAREFULLY BEFORE USING OR ACCESSING
+                www.jprodconsult.media OR ANY COMPONENT/FUNCTIONALITY THEREIN (E.G. FEATURES, TEMPLATES, PRODUCTS,
+                SERVICES AND/OR APPLICATIONS). IF YOU DISAGREE WITH THESE TERMS OF USE, PLEASE LEAVE THE WEBSITE
+                IMMEDIATELY AND REFRAIN FROM IN ANY FORM OR MANNER FROM USING AND/OR ACCESSING ANY OF ITS
+                COMPONENTS/FUNCTIONALITIES. WITHOUT DISMISSING THE IMPORTANCE OF OTHER PROVISIONS CONTAINED HEREIN, WE
+                ADVISE YOU TO PAY SPECIAL ATTENTION TO PROVISIONS OF INDEMNITY, LIABILITY AND PRIVACY.</h5>
+        </div>
+
+
+        <p class="container my-3 fs-5 text-grey-1">By accessing and/or using www.jprodconsult.media, you confirm that
+            you are at a
+            majority age (age of consent) pursuant to the laws of your current nationality. If you are not at a majority
+            age, please seek legal advice to confirm your eligibility to enter and form legally binding agreements,
+            otherwise please leave www.jprodconsult.media and request your legal guardian or custodian to agree to these
+            Terms of Use.
+
+            So, by accessing and/or using www.jprodconsult.media you acknowledge and agree to the terms and conditions
+            of use presented herein (Later “Terms of Use”). This includes agreeing to any additional terms linked to or
+            referenced in these Terms of Use or to any part/component of www.jprodconsult.media now or in the future
+            when you access and/or use www.jprodconsult.media. Your approval to these terms and conditions will
+            automatically renew and apply to the most recent version/modification/alteration of these terms of use every
+            time you access and/or use any component and/or function thereof or linked/attached hereto.
+
+            Upon accessing and/or using these Terms of Use you also agree and acknowledge that these terms and
+            conditions will constitute the framework and the agreement between you as a user (later
+            “User/You/Your/Yours”) of www.jprodconsult.media (later “JL”) and JURDI-LAW/We/Us/Our/Ours as an owner and a
+            proprietary rights holder of JL.</p>
+
+
+        <hr class="w-75 mx-auto">
+        <div class="container my-3">
+            <h2 class="text-grey-2 mt-5 fs-2 scale-up-center">1. OWNERSHIP</h2>
+            <h5 class="fs-5 text-grey-1 my-3">www.jprodconsult.media as well as its audio, visual and audio-visual
+                components is either i) the property of JL, or ii) has been licensed to JURDI LAW according to the
+                respective licenses’ terms and conditions, or iii) in public domain. You are expected and required to
+                refrain from copying and using any of www.jprodconsult.media’s components unless You are i) licensed to
+                do so by JURDI LAW or ii) the material is in public domain. If You are not sure about the above, or if
+                you have any other related questions, please contact Us on this email info@www.jprodconsult.media.com
+                and one of Our team members will assist You. JL contains material/content [e.g. articles, opinions and
+                other publishing(s)] that may address certain topics in the area of law, business or otherwise. If You
+                provide Us with any user generated content then this content will remain Yours and You grant JL a
+                non-exclusive, worldwide, irrevocable, perpetual, royalty-free, sublicensable, transferable, unlimited
+                (all media included) and free of charge license to use and exploit such user generated content. In that
+                regard you undertake to use only content that You generate, Own, or control to a level and scope that
+                would allow you to grant JL the above type of license. You further represent and warrant that by
+                creating user generated content (later “User-generated Content”) You will not infringe on any third
+                party’s intellectual property right, privacy right or any other rights protected by/under enforced
+                applicable laws. You also undertake not to publish any material that is defamatory in nature, offensive,
+                objectionable or that may cause JL or any of its clients or users’ disrepute. By operating a similar
+                service, we disclaim any responsibility for such user generated content which shall be published at Your
+                own risk and responsibility. If You provide Us with feedback (which may without limitation include
+                suggestions and other ideas), JURDI LAW may treat such feedback as User-generated Content. If You are
+                granted access to any of JURDI LAW owned templates (later “Templates”) you may only do so subject to the
+                terms of use determined by JL in that regard. </h5>
+        </div>
+        <div class="container my-3">
+            <h2 class="text-grey-2 mt-5 fs-2 scale-up-center">2. JL CONTENT </h2>
+            <h5 class="fs-5 text-grey-1 my-3">YOU SHOULD NOT RELY OR ACT UPON www.jprodconsult.media MATERIALS SINCE
+                SUCH CONTENT IS NOT INTENDED TO PROVIDE LEGAL OR BUSINESS ADVICE, AND YOU SHOULD NOT RELY ON IT IN YOUR
+                LEGAL AND/OR BUSINESS AFFAIRS OR ADVISE OTHERS TO DO SO. IF YOU DO, YOU WILL BE DOING SO AT YOUR OWN
+                RISK AND LIABILITY. THE USE OF www.jprodconsult.media DOES NOT CREATE A SOLICITOR-CLIENT RELATIONSHIP
+                BETWEEN YOU AND JL. IF YOU WISH TO ENGAGE THE SERVICES OF THE FIRM YOU ARE KINDLY REQUESTED TO READ &
+                APPROVE THE ENGAGEMENT TERMS MADE AVAILABLE THROUGH www.jprodconsult.media.</h5>
+        </div>
+        <div class="container my-3">
+            <h2 class="text-grey-2 mt-5 fs-2 scale-up-center">3. THIRD PARTY LINKS </h2>
+            <h5 class="fs-5 text-grey-1 my-3">www.jprodconsult.media may contain links to other websites or to certain
+                materials hosted on other websites. When doing so, you acknowledge that you are entering these websites
+                at your own risk and liability. You agree and acknowledge that terms of use of these websites will rule
+                your relationship with the owners of these websites.</h5>
+        </div>
+        <div class="container my-3">
+            <h2 class="text-grey-2 mt-5 fs-2 scale-up-center">4. RESERVED RIGHTS</h2>
+            <h5 class="fs-5 text-grey-1 my-3">To the extent permissible by law, JURDI LAW reserves its right to i)
+                suspend or discontinue part or all of our services; ii) terminate your access to our website and/or
+                service and/or restrict/disable it. </h5>
+        </div>
+        <div class="container my-3">
+            <h2 class="text-grey-2 mt-5 fs-2 scale-up-center">5. LIMITATION OF LIABILITY.  </h2>
+            <h5 class="fs-5 text-grey-1 my-3">IN NO EVENT SHALL JURDI LAW OR ANY OF ITS OWNERS, DIRECTORS, MANAGERS,
+                EMLOYEES, AGENTS, ASSIGNEES OR REPRESENTATIVES BE LIABLE TO YOU FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
+                PUNITIVE OR CONSEQUENTIAL DAMAGES (INCLUDING WITHOUT LIMITATION DAMAGES FOR LOSS OF DATA, BUSINESS
+                INTERRUPTION OR LOSS OF BUSINESS PROFITS) ARISING OUT OF OR RELATED TO THIS AGREEMENT, REGARDLESS OF THE
+                FORM OF THE ACTION AND EVEN IF A REPRESENTATIVE OF JL ALLEGEDLY LIABLE WAS ADVISED, HAD REASON TO KNOW,
+                OR IN FACT KNEW OF THE POSSIBILITY OF SUCH DAMAGES. THESE LIMITATIONS SHALL APPLY NOTWITHSTANDING ANY
+                FAILURE OF ESSENTIAL PURPOSE OF ANY LIMITED REMEDY. THE FOREGOING LIMITATIONS SHALL NOT APPLY WITH
+                RESPECT TO ANY INDEMNIFICATION OBLIGATIONS OR TO ANY BREACH OF CONFIDENTIALITY SET FORTH HEREIN. THE
+                PARTIES DO NOT EXCLUDE OR LIMIT ANY LIABILITY THAT CANNOT BE EXCLUDED OR LIMITED BY APPLICABLE LAW.</h5>
+        </div>
+        <div class="container my-3">
+            <h2 class="text-grey-2 mt-5 fs-2 scale-up-center">6. INDEMNITY </h2>
+            <h5 class="fs-5 text-grey-1 my-3">You shall defend and hold JURDI LAW and its respective owners, directors,
+                managers, officers, employees, agents, assignees, and representatives harmless of and from all and any
+                claims, charges, damages, costs, judgements, decrees, losses, expenses, (including reasonable attorney
+                fees), penalties, demands, liabilities, and causes of action of any kind or nature arising from or in
+                relation to the User’s breach of representations, warranties or of any other material covenants
+                contained herein. </h5>
+        </div>
+        <div class="container my-3">
+            <h2 class="text-grey-2 mt-5 fs-2 scale-up-center">7. PRIVACY</h2>
+            <h5 class="fs-5 text-grey-1 my-3">By accessing and using www.jprodconsult.media You acknowledge and agree
+                that JURDI LAW may have access to Your personal information. Some of this information may include
+                personally identifiable information as well non-personal information. We may store your IP address but
+                not your personally identifiable information. Further, www.jprodconsult.media uses cookies. You may set
+                your cookies as default, essential or reject cookies. We bring to your attention that rejecting cookies
+                may limit Your user experience on Our website.  We will not share your personal information with third
+                parties without Your consent, however if You are agreeing to third party access to Your personal
+                information, You will be doing so at your own risk and JURDI LAW hereby disclaims any responsibility or
+                liability in relation to that. Further, by accessing/using www.jprodconsult.media you agree to our
+                Privacy Policy available on www.jprodconsult.media and which JURDI LAW may vary from time to time. For
+                that reason you are advised to read it every time you access or use www.jprodconsult.media.</h5>
+        </div>
+        <div class="container my-3">
+            <h2 class="text-grey-2 mt-5 fs-2 scale-up-center">8. JURISDICTION & APPLICABLE LAW</h2>
+            <h5 class="fs-5 text-grey-1 my-3">This Agreement is subject to the applicable laws of the republic of
+                Lebanon and the Lebanese courts shall have the exclusive jurisdiction to rule in relation to any dispute
+                related thereto.</h5>
+        </div>
+
+
+
+    </main>
+    <hr>
+    <footer>
+        <h6 class="fs-6 text-grey-1 text-center my-3">Powered by <a href="https://lebancode.com"
+                class="text-grey-2"><strong>Lebancode.com</strong></a></h6>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
+        </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init()
+    </script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
