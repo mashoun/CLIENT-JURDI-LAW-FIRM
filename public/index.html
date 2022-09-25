@@ -18,185 +18,91 @@
 </head>
 
 <body id="app">
+    <!-- Geo block -->
     <section v-if="geo" class="geo-block">
-        <img src="assets/img/Color logo with background.png" alt="Jurdi Logo" class="img-fluid rounded" width="100">
-        <h1 class="text-center text-grey-2 my-5">Geo blocked </h1>
+        <center class="my-5">
+            <img @click="unGeoBlock" src="assets/img/Color_logo_with_background-removebg-preview.png" alt="Jurdi Logo"
+                class="img-fluid rounded" width="120">
+            <h1 class="text-center text-grey-2 my-5">Welcome to JURDI Law </h1>
+            <p class="text-center text-grey-2 my-5">Unfortunately JURDI Law Does Not Provide Services In Your
+                Jurisdiction</p>
+        </center>
     </section>
+
+
+
+    <!-- Spinner -->
     <section v-if="spinner" class="geo-block">
         <center class="my-5 d-flex flex-column justify-content-center align-items-center">
 
-            <img src="assets/img/Color logo with background.png" alt="Jurdi Logo" class="img-fluid rounded my-3" width="100">
+            <img src="assets/img/Color_logo_with_background-removebg-preview.png" alt="Jurdi Logo"
+                class="img-fluid rounded my-4" width="120">
             <!-- <h1 class="fs-1 text-center cin text-grey-2 my-3">Jurdi Law</h1> -->
-            <div class="spinner-grow text-light" role="status"></div>
+            <div class="spinner-grow text-light mt-5" role="status"></div>
         </center>
     </section>
-    <header
-        class="w-100 position-fixed top-0 start-0  d-flex justify-content-between align-items-center px-5 py-3 shadow text-light">
-        <a href="./index.html">
-            <img src="assets/img/Color logo with background.png" alt="Jurdi Logo" class="img-fluid rounded" width="100">
-        </a>
-        <!-- <h1 class="fs-1 cin  point"><a href="./index.html" class="text-light">Jurdi Law</a></h1> -->
-        <nav class="justify-content-evenly align-items-center gap-5">
-            <a href="./index.html" class="fs-6">Home</a>
-            <a href="./team.html" class="fs-6">Our Team</a>
-            <a href="./terms.html" class="fs-6">Terms of Use</a>
-            <a href="./privacy policy.html" class="fs-6">Privacy Policy</a>
-            <a :href="profile.linkedin" class="fs-6">LinkedIn</a>
-            <a href="" class="btn btn-primary px-3 ls-2 fs-6">Contact</a>
-        </nav>
-        <i class="bi bi-grid-fill fs-1 menu point" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"></i>
 
 
 
-        <div class="w-85 offcanvas offcanvas-end text-dark" tabindex="-1" id="offcanvasExample"
-            aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title fs-5 text-grey-1 cin" id="offcanvasExampleLabel">Jurdi Law</h5>
-                <i class="bi bi-arrow-right fs-3" data-bs-dismiss="offcanvas" aria-label="Close"></i>
-            </div>
-            <div class="offcanvas-body">
-                <div class="text-center text-secondary">
-                    {{profile.bio}}
-                </div>
-                <div class="d-flex justify-content-evenly align-items-center gap-3 my-4 media-links">
-                    <i class="bi bi-whatsapp"></i>
-                    <i class="bi bi-linkedin"></i>
-                    <i class="bi bi-envelope"></i>
-                    <i class="bi bi-twitter"></i>
-                </div>
-                <hr>
-                <section class="d-flex flex-column justify-content-evenly align-items-center gap-3 my-4 ls-2">
-                    <a href="">Technology</a>
-                    <a href="">Media</a>
-                    <a href="">Music</a>
-                    <a href="">Influencers & Talents</a>
-                    <a href="./team.html">Our Team</a>
+    <!-- Header -->
+    <my-nav :profile="profile"></my-nav>
 
-                    <a href="">Privacy Policy</a>
-                    <a href="">Terms of Use</a>
-                    <a href="" class="btn btn-primary text-light w-75">Contact Us</a>
-                </section>
 
-            </div>
-        </div>
-    </header>
+
+    <!-- MAIN CONTENT -->
     <main>
 
-        <h2 class="text-center text-grey-2 mt-5 fs-2 scale-up-center">{{profile.heading}}</h2>
-        <h5 class="fs-5 text-grey-1 text-center container my-3">
+        <h1 class="text-center text-grey-2 mt-5 fs-2 scale-up-center">{{profile.heading}}</h1>
+        <h2 class="fs-5 text-grey-1 text-center container my-3">
             {{profile.bio}}
-        </h5>
+        </h2>
+        <!-- SERVICES SECTION *** -->
         <section class="container d-flex justify-content-evenly align-items-center flex-wrap my-5 gap-4">
-            <div v-for="s in profile.services" :key="s" class="pot glow-h" data-aos="zoom-in-up"
-                data-aos-duration="1000" data-aos-delay="50">
+            <div v-for="s in profile.services" :key="s" @click="setTab(s)" class="pot glow-h" data-aos="zoom-in-up"
+                data-aos-duration="1000" :data-aos-delay="s.index * 200" data-bs-toggle="modal"
+                :data-bs-target="'#'+modalId">
+
                 <img :src="s.url" alt="img" class="rounded shadow" width="300" height="300">
                 <h4 class="fs-4">{{s.title}}</h4>
 
             </div>
         </section>
-        <!-- <center>
-            <a href="team.html" class="btn btn-outline-light px-5 fs-3">Check our team</a>
-        </center> -->
-
-
-        <!-- Team Section -->
-
         <hr class="w-75 mx-auto">
-        <!-- Contact Section -->
-        <h2 class="text-center text-grey-2 fs-2">Contact us</h2>
-        <h5 class="fs-5 text-grey-1 text-center container my-3">
-            {{profile.contactHeading}}
-        </h5>
-        <!-- ======= Contact Section ======= -->
-        <section id="contact" class="contact my-5">
 
-            <div class="container">
 
-                <div class="row gy-4">
 
-                    <div class="col-lg-6">
+        <!-- CONTACT SECTION -->
+        <contact :profile="profile"></contact>
 
-                        <div class="row gy-4">
-                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                                <div class="info-box rounded shadow  glow-h point">
-                                    <i class="bi bi-geo-alt"></i>
-                                    <h3>Address</h3>
-                                    <p> {{profile.address1}} <br>{{profile.address2}}</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
-                                <div class="info-box rounded shadow  glow-h point">
-                                    <i class="bi bi-telephone"></i>
-                                    <h3>Call Us</h3>
-                                    <p>{{profile.number1}}<br>{{profile.number2}}</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="700">
-                                <div class="info-box rounded shadow  glow-h point">
-                                    <i class="bi bi-envelope"></i>
-                                    <h3>Email Us</h3>
-                                    <p>{{profile.email1}}<br>{{profile.email2}}</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="900">
-                                <div class="info-box rounded shadow  glow-h point">
-                                    <i class="bi bi-clock"></i>
-                                    <h3>Open Hours</h3>
-                                    <p>{{profile.openDays}}<br>{{profile.openHours}}</p>
-                                </div>
-                            </div>
-                        </div>
+    </main>
+    <section>
 
+        <!-- Modal -->
+        <div class="modal fade" :id="modalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <img src="assets/img/Color_logo_with_background-removebg-preview.png" alt="JURDI LOGO"
+                            class="img-fluid" width="80">
+
+                        <!-- <button type="button" class="btn-close text-light" ></button> -->
+                        <i class="bi bi-arrow-right fs-3 point text-light" data-bs-dismiss="modal"
+                            aria-label="Close"></i>
                     </div>
-
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="700">
-                        <form class="php-email-form  rounded shadow">
-                            <div class="row gy-4">
-
-                                <div class="col-md-6">
-                                    <input v-model="username" type="text" name="name" class="form-control"
-                                        placeholder="Your Name" required>
-                                </div>
-
-                                <div class="col-md-6 ">
-                                    <input v-model="useremail" type="email" class="form-control" name="email"
-                                        placeholder="Your Email" required>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <input v-model="subject" type="text" class="form-control" name="subject"
-                                        placeholder="Subject" required>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <textarea v-model="message" class="form-control" name="message" rows="6"
-                                        placeholder="Message" required></textarea>
-                                </div>
-
-                                <div class="col-md-12 text-center">
-
-                                    <a class="send-msg btn btn-primary mt-3"
-                                        :href="`mailto:${profile.email1}?subject=${encode(subject)}&body=${encode(''+username+' | '+useremail+'\n\n\n'+message)}`">Send
-                                        Message</a>
-                                </div>
-
-                            </div>
-                        </form>
-
+                    <div class="modal-body text-grey-1">
+                        <h4 class="modal-title text-grey-2 fs-4" id="exampleModalLabel">#{{modalTitle}}</h4>
+                        <br>
+                        <!-- <hr class="w-50"> -->
+                        {{modalBody}}
                     </div>
 
                 </div>
-
             </div>
+        </div>
+    </section>
 
-        </section><!-- End Contact Section -->
-
-    </main>
-    <hr>
-    <footer>
-        <h6 class="fs-6 text-grey-1 text-center my-3">Powered by <a href="https://lebancode.com"
-                class="text-grey-2"><strong>Lebancode.com</strong></a></h6>
-    </footer>
+    <!-- FOOTER -->
+    <my-footer :profile="profile"></my-footer>
 
     <!-- JAVASCRIPT -->
     <script src="assets/js/vue.js"></script>
@@ -207,7 +113,6 @@
     <script>
         AOS.init()
     </script>
-    <script src="assets/js/app.js"></script>
 </body>
 
 </html>

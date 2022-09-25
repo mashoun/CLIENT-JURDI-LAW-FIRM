@@ -4,12 +4,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 :root {
 
-    --dark-1: #0d1b2a;
+    --dark-1: #000814;
     --dark-2: #1b263b;
+    --dark-x: #0d1b2a;
     --blue: #003566;
     --logo-color: #0C234D;
     --grey-1: #415a77;
@@ -30,6 +32,9 @@ nav>a {
 }
 
 /* GENERAL CLASSES */
+.no-select{
+    user-select: none;
+}
 .cin {
     font-family: 'Cinzel', serif;
 
@@ -81,6 +86,10 @@ nav>a {
     background-color: var(--grey-2);
 }
 
+.bg-dark-x {
+    background-color: var(--dark-x);
+}
+
 .text-grey-1 {
     color: var(--grey-1);
 }
@@ -97,11 +106,16 @@ hr {
 .w-85 {
     width: 85% !important;
 }
-
+.h-250px{
+    height: 250px;
+}
 /* BODY */
 body {
-    background-color: var(--dark-1) !important;
-    overflow-x: hidden !important;
+    /* background-color: var(--dark-1) !important; */
+    background-color: #000814 !important;
+    /* background: rgb(0, 53, 102);
+    background: linear-gradient(177deg, rgba(0, 53, 102, 1) 0%, rgba(13, 27, 42, 1) 70%);
+    overflow-x: hidden !important; */
 }
 
 .geo-block {
@@ -110,14 +124,15 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--logo-color);
+    background-color: var(--dark-1);
     z-index: 9999;
 }
 
 /* HEADER */
 header {
     z-index: 100;
-    background-color: var(--logo-color);
+    background-color: var(--dark-1);
+
 }
 
 header>h1 {
@@ -136,8 +151,17 @@ nav>a:hover {
     display: none;
 }
 
-.media-links>i {
-    color: var(--blue);
+.media-links>a>i {
+    color: var(--grey-2);
+}
+
+.media-links>a {
+
+    transition: .3s;
+}
+
+.media-links>a:hover {
+    transform: scale(1.4);
 }
 
 /* MAIN */
@@ -168,6 +192,14 @@ main {
 
     /* box-shadow: 0 0 8px rgb(73 173 255); */
 
+}
+
+.offcanvas {
+    /* background-color: var(--dark-x) !important; */
+}
+
+.modal-content {
+    background-color: var(--dark-x) !important;
 }
 
 /* SCROLL BAR */
@@ -221,7 +253,7 @@ main {
     bottom: 0;
     height: 100%;
     width: 100%;
-    background: url(../img/team-shape.svg) no-repeat center bottom;
+    /* background: url(../img/team-shape.svg) no-repeat center bottom; */
     background-size: contain;
     z-index: 1;
 }
