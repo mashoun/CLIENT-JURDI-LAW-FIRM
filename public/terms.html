@@ -5,6 +5,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0">
     <title>Jurdi | Terms of use</title>
+    
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- SEO TAGS -->
+    <meta name="title" content="Jurdi Law Firm">
+    <meta name="description" content="MEDIA PRODUCTION, BROADCAST AND TECHNOLOGY LEGAL AFFAIRS ADVISORS">
+    <meta name="keywords" content="MEDIA PRODUCTION, BROADCAST, TECHNOLOGY LEGAL AFFAIRS ADVISORS ,Lebanon">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="1 days">
+    <meta name="author" content="Fadi eljurdi">
+
+    <!--  Essential META Tags -->
+    <meta property="og:title" content="Jurdi Law Firm">
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="./assets/img/logo.png">
+    <meta property="og:url" content="http://jurdilaw.com">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!--  Non-Essential, But Recommended -->
+    <meta property="og:description" content="MEDIA PRODUCTION, BROADCAST AND TECHNOLOGY LEGAL AFFAIRS ADVISORS">
+    <meta property="og:site_name" content="Jurdi Law Firm">
+    <meta name="twitter:image:alt" content="Jurdi Law Firm">
+
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/animations.css">
@@ -20,20 +45,15 @@
 <body id="app">
 
     <!-- Geo block -->
-    <section v-if="geo" class="geo-block">
-        <center class="my-5">
-            <img @click="unGeoBlock" src="assets/img/Color_logo_with_background-removebg-preview.png" alt="Jurdi Logo"
-                class="img-fluid rounded" width="120">
-            <h1 class="text-center text-grey-2 my-5">Welcome to JURDI Law </h1>
-            <p class="text-center text-grey-2 my-5">Unfortunately JURDI Law Does Not Provide Services In Your
-                Jurisdiction</p>
-        </center>
+    <section v-if="geo" class="geo-block" @click="unGeoBlock">
+        <geo></geo>
     </section>
+    
     <!-- Spinner -->
     <section v-if="spinner" class="geo-block">
         <center class="my-5 d-flex flex-column justify-content-center align-items-center">
 
-            <img src="assets/img/Color_logo_with_background-removebg-preview.png" alt="Jurdi Logo"
+            <img src="assets/img/logo.png" alt="Jurdi Logo"
                 class="img-fluid rounded my-4" width="120">
             <!-- <h1 class="fs-1 text-center cin text-grey-2 my-3">Jurdi Law</h1> -->
             <div class="spinner-grow text-light mt-5" role="status"></div>
@@ -180,7 +200,7 @@
     <!-- CONTACT SECTION -->
     <contact :profile="profile"></contact>
 
-    
+
     <!-- FOOTER -->
     <my-footer :profile="profile"></my-footer>
 

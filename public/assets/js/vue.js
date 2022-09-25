@@ -44,18 +44,19 @@ const app = Vue.createApp({
     mounted() {
 
         // GEO BLOCKING
-        // fetch('https://api.ipregistry.co/?key=x0t2kp1nt9cpfhqp').then(res => res.json()).then(res => {
-        //     console.log(res)
-        //     this.country = res.location.country.code
-        //     console.log(this.country)
-        //     if (this.country == 'US') {
-        //         this.geo = true
-        //     }
-        // })
+        fetch('https://api.ipregistry.co/?key=x0t2kp1nt9cpfhqp').then(res => res.json()).then(res => {
+            console.log(res)
+            this.country = res.location.country.code
+            console.log(this.country)
+            if (this.country == 'US') {
+                this.geo = true
+            }
+        })
 
         this.spinner = true
         fetch(this.api).then(res => res.json()).then(res => {
-            console.log(res)
+            // console.log(res)
+
             this.profile = res
             this.spinner = false
         }).catch(err => {
@@ -71,10 +72,13 @@ app.component('my-nav', {
     
     <header
         class="w-100 position-fixed top-0 start-0  d-flex justify-content-between align-items-center p-4 shadow text-light">
-        <a href="#">
-            <img src="assets/img/Color_logo_with_background-removebg-preview.png" alt="Jurdi Logo"
-                class="img-fluid rounded" width="120">
-        </a>
+        <div class="d-flex gap-3 align-items-center">
+            <i class="bi bi-grid-fill menu fs-1 point" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"></i>
+            <a href="./index.html">
+                <img src="assets/img/logo.png" alt="Jurdi Logo"
+                    class="img-fluid rounded" width="120" height="25">
+            </a>
+        </div>
         <!-- <h1 class="fs-1 cin  point"><a href="#" class="text-light">Jurdi Law</a></h1> -->
         <nav class="justify-content-evenly align-items-center gap-5">
             <a href="./index.html" class="fs-6">Home</a>
@@ -82,28 +86,34 @@ app.component('my-nav', {
             <a href="./terms.html" class="fs-6">Terms of Use</a>
             <a href="./privacy policy.html" class="fs-6">Privacy Policy</a>
             <a :href="profile.linkedin" class="fs-6">LinkedIn</a>
-            <a :href="profile.whatsapp" class="fs-6">Whatsapp</a>
-            <a href="#Contact" class="btn btn-primary px-3 ls-2 fs-6">Contact</a>
+            <a href="#Contact" class="fs-6">Contact</a>
+            <div>
+                <a :href="profile.whatsapp" class="btn btn-success px-3">
+                <i class="bi bi-whatsapp me-2 fs-6 text-light"></i> Whatsapp
+                </a>
+            </div>
         </nav>
-        <i class="bi bi-grid-fill fs-1 menu point" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"></i>
+        <a :href="profile.whatsapp" class="menu">
+            <img src="assets/img/wa.png" class="img-fluid" width="30" height="30" alt="Contact by Whatsapp">
+        </a>
 
 
 
-        <div class="w-85 offcanvas offcanvas-end text-dark" tabindex="-1" id="offcanvasExample"
+        <div class="w-85 offcanvas offcanvas-start text-dark" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title fs-5 text-grey-1 cin" id="offcanvasExampleLabel">Jurdi Law</h5>
-                <i class="bi bi-arrow-right fs-3" data-bs-dismiss="offcanvas" aria-label="Close"></i>
+                <i class="bi bi-arrow-left fs-3" data-bs-dismiss="offcanvas" aria-label="Close"></i>
             </div>
             <div class="offcanvas-body">
                 <div class="text-center text-secondary">
                     {{profile.bio}}
                 </div>
                 <div class="d-flex justify-content-evenly align-items-center gap-3 my-4 media-links">
+                
+                    <a :href="'mailTo:'+profile.email1"> <i class="bi bi-envelope"></i></a>
                     <a :href="profile.whatsapp"><i class="bi bi-whatsapp"></i></a>
                     <a :href="profile.linkedin"> <i class="bi bi-linkedin"></i></a>
-                    <a :href="'mailTo:'+profile.email1"> <i class="bi bi-envelope"></i></a>
-                    <a :href="profile.twitter"><i class="bi bi-twitter"></i></a>
                 </div>
                 <hr>
                 <section class="d-flex flex-column justify-content-evenly align-items-center gap-3 my-4 ls-2">
@@ -112,8 +122,12 @@ app.component('my-nav', {
 
                     <a href="./privacy policy.html">Privacy Policy</a>
                     <a href="./terms.html">Terms of Use</a>
-                    <a href="#Contact" class="btn btn-primary text-light w-75"><span data-bs-dismiss="offcanvas">Contact
-                            Us</span>
+                    <span data-bs-dismiss="offcanvas" >
+                    <a href="#Contact">Contact Us</a>
+                    </span>
+                   
+                    <a :href="profile.whatsapp" class="btn btn-success px-3 w-100">
+                    <i class="bi bi-whatsapp me-2 fs-6 text-light"></i> Whatsapp
                     </a>
                 </section>
 
@@ -144,34 +158,35 @@ app.component('contact', {
                     <div class="col-lg-6">
 
                         <div class="row gy-4">
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                            <div class="info-box rounded shadow  glow-h point h-250px">
+                                <i class="bi bi-telephone"></i>
+                                <h3>Call Us</h3>
+                                <p class="ls-2 fs-6"> <a :href="'tel:+'+profile.number1" class="text-grey-2">+{{profile.number1}}</a> <br>{{profile.number2}}</p>
+                                <a :href="profile.whatsapp" class="btn btn-success w-100 mt-3"> <i class="bi bi-whatsapp me-2 fs-6 text-light"></i> Whatsapp</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="700">
+                            <div class="info-box rounded shadow  glow-h point h-250px">
+                                <i class="bi bi-envelope"></i>
+                                <h3>Email Us</h3>
+                                <p class="ls-2 fs-6"> <a :href="'mailto:'+profile.email1" class="text-grey-2">{{profile.email1}}</a> </p>
+                            </div>
+                        </div>
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                                <div class="info-box rounded shadow  glow-h point h-250px">
-                                    <i class="bi bi-geo-alt"></i>
-                                    <h3>Address</h3>
-                                    <p class="fs-6"> {{profile.address1}} <br>{{profile.address2}}</p>
-                                </div>
+                            <div class="info-box rounded shadow  glow-h point h-250px">
+                                <i class="bi bi-geo-alt"></i>
+                                <h3>Address</h3>
+                                <p class="fs-6"> {{profile.address1}} <br>{{profile.address2}}</p>
                             </div>
-                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
-                                <div class="info-box rounded shadow  glow-h point h-250px">
-                                    <i class="bi bi-telephone"></i>
-                                    <h3>Call Us</h3>
-                                    <p class="ls-2 fs-6"> <a :href="'tel:+'+profile.number1" class="text-grey-2">+{{profile.number1}}</a> <br>{{profile.number2}}</p>
-                                </div>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="900">
+                            <div class="info-box rounded shadow  glow-h point h-250px">
+                                <i class="bi bi-clock"></i>
+                                <h3>Open Hours</h3>
+                                <p class="fs-6">{{profile.openDays}}<br>{{profile.openHours}}</p>
                             </div>
-                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="700">
-                                <div class="info-box rounded shadow  glow-h point h-250px">
-                                    <i class="bi bi-envelope"></i>
-                                    <h3>Email Us</h3>
-                                    <p class="ls-2 fs-6"> <a :href="'mailto:'+profile.email1" class="text-grey-2">{{profile.email1}}</a> <br>{{profile.email2}}</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="900">
-                                <div class="info-box rounded shadow  glow-h point h-250px">
-                                    <i class="bi bi-clock"></i>
-                                    <h3>Open Hours</h3>
-                                    <p class="fs-6">{{profile.openDays}}<br>{{profile.openHours}}</p>
-                                </div>
-                            </div>
+                        </div>
                         </div>
 
                     </div>
@@ -202,7 +217,7 @@ app.component('contact', {
 
                                 <div class="col-md-12 text-center">
 
-                                <a class="send-msg btn btn-primary mt-3"
+                                <a class="px-5 send-msg btn btn-primary mt-3"
                                 :href="link">Send
                                 Message</a>
                                 </div>
@@ -224,16 +239,16 @@ app.component('contact', {
 
 
             // send a message form
-           
+
             message: '',
             subject: '',
             username: '',
             useremail: '',
         }
     },
-    computed:{
-        link(){
-            return `mailto:${this.profile.email1}?subject=${this.encode(this.subject)}&body=${this.encode('' + this.username + ' | ' + this.useremail + '\n\n\n' + this.message)}`
+    computed: {
+        link() {
+            return `mailto:${this.profile.email2}?subject=${this.encode(this.subject)}&body=${this.encode('' + this.username + ' | ' + this.useremail + '\n\n\n' + this.message)}`
         }
     },
     methods: {
@@ -253,8 +268,8 @@ app.component('my-footer', {
     <footer class=" w-100 py-5">
 
         <center>
-            <img src="assets/img/Color_logo_with_background-removebg-preview.png" alt="JURDI LOGO" class="img-fluid"
-                width="150" data-aos="zoom-in-up" data-aos-duration="1000">
+            <img src="assets/img/logo.png" alt="JURDI LOGO" class="img-fluid"
+                width="150" height="25" data-aos="zoom-in-up" data-aos-duration="1000">
 
             <div class="d-flex justify-content-evenly align-items-center gap-3 my-5 fs-3 text-grey-2 media-links w-75">
                 <a :href="profile.whatsapp" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="50"><i
@@ -270,11 +285,25 @@ app.component('my-footer', {
         </center>
         <!-- <hr class="w-75 mx-auto"> -->
         <hr>
-        <h6 ondblclick="alert('This site (version:1.0.4) was developed by lebancode.com')"
+        <h6 title="Developed By Lebancode.com" ondblclick="alert('This site (version:1.1.1) was developed by lebancode.com')"
             class="point fs-6 text-grey-1 text-center mb-0 mt-4 no-select">All Rights Reserved</h6>
 
     </footer>
     `,
     props: ['profile']
+})
+
+app.component('geo', {
+    template:
+        /*html */
+        `
+    <center class="my-5">
+        <img  src="assets/img/logo.png" alt="Jurdi Logo"
+            class="img-fluid rounded" width="120">
+        <!-- <h1 class="text-center text-grey-2 my-5">Welcome to JURDI Law </h1> -->
+        <p class="text-center text-grey-2 my-5 fs-6 no-select">Unfortunately JURDI Law Does Not Provide Services In Your
+            Jurisdiction</p>
+    </center>
+    `,
 })
 app.mount('#app')
