@@ -87,7 +87,7 @@ nav>a {
 }
 
 .bg-dark-x {
-    background-color: var(--dark-x);
+    background-color: var(--dark-x) !important;
 }
 
 .text-grey-1 {

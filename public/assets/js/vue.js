@@ -99,17 +99,17 @@ app.component('my-nav', {
 
 
 
-        <div class="w-85 offcanvas offcanvas-start text-dark" tabindex="-1" id="offcanvasExample"
+        <div class="w-85 offcanvas offcanvas-start bg-dark-x" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title fs-5 text-grey-1 cin" id="offcanvasExampleLabel">Jurdi Law</h5>
+                <h5 class="offcanvas-title fs-5 text-light cin" id="offcanvasExampleLabel">Jurdi Law</h5>
                 <i class="bi bi-arrow-left fs-3" data-bs-dismiss="offcanvas" aria-label="Close"></i>
             </div>
             <div class="offcanvas-body">
-                <div class="text-center text-secondary">
+                <div class="text-center text-grey-2 fs-4">
                     {{profile.bio}}
                 </div>
-                <div class="d-flex justify-content-evenly align-items-center gap-3 my-4 media-links">
+                <div class="fs-5 d-flex justify-content-evenly align-items-center gap-3 my-4 media-links">
                 
                     <a :href="'mailTo:'+profile.email1"> <i class="bi bi-envelope"></i></a>
                     <a :href="profile.whatsapp"><i class="bi bi-whatsapp"></i></a>
@@ -285,7 +285,7 @@ app.component('my-footer', {
         </center>
         <!-- <hr class="w-75 mx-auto"> -->
         <hr>
-        <h6 title="Developed By Lebancode.com" ondblclick="alert('This site (version:1.1.1) was developed by lebancode.com')"
+        <h6 title="Developed By Lebancode.com" ondblclick="alert('This site (version:1.2) was developed by lebancode.com')"
             class="point fs-6 text-grey-1 text-center mb-0 mt-4 no-select">All Rights Reserved</h6>
 
     </footer>
